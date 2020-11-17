@@ -1,4 +1,4 @@
-# Typogram
+# Typogram 🖼️
 
 **Typogram** (a [portmanteau](https://en.wikipedia.org/wiki/Portmanteau) of
 _typography_ and _instagram_) is a simple web app to create nice-looking,
@@ -27,7 +27,7 @@ passed to Torus's rendering logic.
 
 The graphic is initially created and previewed as normal DOM elements, scaled
 to fit the editor on smaller displays. To **download/export the graphic**,
-Typogram dependson [html2canvas](https://github.com/niklasvh/html2canvas) which
+Typogram depends on [html2canvas](https://github.com/niklasvh/html2canvas) which
 (mostly correctly) emulates the DOM to render an equivalent image on a canvas,
 which is then converted to a PNG. There are some known bugs in html2canvas, but
 I don't consider this a huge issue since screen-capturing the preview usually
