@@ -208,6 +208,8 @@ header nav a {
 }
 .editor select {
     min-width: 10em;
+    /* Safari fix */
+    -webkit-appearance: none;
 }
 
 .credits {

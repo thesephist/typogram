@@ -170,7 +170,7 @@ class Editor extends Component {
 
             <details open>
                 <summary>
-                    <h2>3. Download</h2>
+                    <h2>3. Download (beta)</h2>
                 </summary>
                 <button class="accent movable paper"
                     onclick=${this.downloader}
