@@ -1,0 +1,229 @@
+html,
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans', system-ui, 'Helvetica Neue', 'Arial', 'Segoe UI', sans-serif;
+    background: #dcdfdc;
+
+    --paper-accent: #111;
+}
+
+input,
+textarea,
+button,
+select,
+option {
+    font-size: 1em;
+    line-height: 1.5em;
+    font-family: 'IBM Plex Sans', system-ui, 'Helvetica Neue', 'Arial', 'Segoe UI', sans-serif;
+}
+
+.app {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.typogram.paper {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    line-height: 1.5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% - 180px), -50%);
+    transition: transform .4s ease-in-out, margin .4s ease-in-out;
+}
+.typogram-header,
+.typogram-footer {
+    opacity: .5;
+    position: absolute;
+    left: 1.5em;
+    width: calc(100% - 3em);
+}
+.typogram-header {
+    top: 1.5em;
+}
+.typogram-footer {
+    bottom: 1.5em;
+}
+.typogram-body {
+    position: absolute;
+    top: 50%;
+    left: 1.5em;
+    transform: translateY(-50%);
+    min-height: 7.5em;
+    width: calc(100% - 3em);
+}
+.typogram-body h1,
+.typogram-body h2,
+.typogram-body h3 {
+    margin-top: .5em;
+}
+
+.typogram-body p,
+.typogram-body q,
+.typogram-body li,
+.typogram-body ul,
+.typogram-body ol,
+.typogram-body pre {
+    margin: .5em 0;
+}
+.typogram-body q {
+    display: block;
+    position: relative;
+    padding-left: calc(.5em + 4px);
+    box-sizing: border-box;
+}
+.typogram-body q::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin-right: .25em;
+    background: var(--paper-foreground);
+    width: 4px;
+}
+.typogram-body q::after {
+    display: none;
+}
+
+.font-sans {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.font-serif {
+    font-family: 'IBM Plex Serif', serif;
+}
+.font-mono {
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.size-small {
+    font-size: 20px;
+}
+.size-medium {
+    font-size: 22px;
+}
+.size-large {
+    font-size: 26px;
+}
+
+.align-left {
+    text-align: left;
+}
+.align-center {
+    text-align: center;
+}
+.align-right {
+    text-align: right;
+}
+
+.scheme-light {
+    --paper-foreground: #111;
+    --paper-background: #fafafa;
+}
+.scheme-dark {
+    --paper-foreground: #fafafa;
+    --paper-background: #111;
+}
+
+header h1 {
+    margin-top: 0;
+    margin-bottom: .25em;
+}
+header nav a {
+    color: #777;
+}
+
+.editor {
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    width: 360px;
+    height: calc(100vh - 2em);
+    overflow-y: auto;
+}
+.editor input,
+.editor textarea {
+    width: 100%;
+}
+.editor .p-height,
+.editor textarea {
+    min-height: 5em;
+    resize: none;
+    line-height: 1.5em;
+}
+.editor textarea {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+.editor .textarea-wrapper {
+    position: relative;
+}
+.editor .p-height {
+    white-space: pre-wrap;
+    visibility: hidden;
+}
+.editor .p-height.pad-end {
+    padding-bottom: 2em;
+}
+.editor label {
+    margin-bottom: .75em;
+}
+.editor label p {
+    text-transform: uppercase;
+    opacity: .5;
+    font-size: .8em;
+    font-weight: bold;
+    margin-bottom: .25em;
+}
+.editor details {
+    margin-top: 1em;
+    margin-bottom: 2em;
+}
+.editor summary h2 {
+    display: inline-block;
+    margin: 0.25em 0;
+}
+.editor details[open] summary h2 {
+    margin-bottom: .5em;
+}
+.editor label.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.editor select {
+    min-width: 10em;
+}
+
+@media only screen and (max-width: 930px) {
+    .app {
+        padding-top: 1em;
+    }
+    .typogram.paper,
+    .editor {
+        position: relative;
+        top: unset;
+        left: 0;
+        right: unset;
+        bottom: unset;
+    }
+    .typogram.paper {
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+    }
+    .editor {
+        width: calc(100% - 2em);
+        height: auto;
+        margin: 1em auto;
+    }
+}
