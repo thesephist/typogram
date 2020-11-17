@@ -83,11 +83,12 @@ class Editor extends Component {
         this.record.update({[prop]: value});
     }
     compose(gram) {
-        return jdom`<div class="paper editor">
+        return jdom`<div class="paper paper-border-top editor">
             <header>
                 <h1>Typogram</h1>
                 <nav>
-                    <a href="https://github.com/thesephist/typogram">About Typogram</a>
+                    <a href="https://github.com/thesephist/typogram"
+                        target="_blank">About Typogram</a>
                 </nav>
             </header>
 
@@ -175,6 +176,15 @@ class Editor extends Component {
                     onclick=${this.downloader}
                     >Download (.png)</button>
             </details>
+
+            <div class="credits">
+                A project by
+                <a href="https://thesephist.com" target="_blank">@thesephist</a>.,
+                made with
+                <a href="https://github.com/thesephist/torus" target="_blank">Torus</a>
+                and
+                <a href="https://thesephist.github.io/paper.css/" target="_blank">paper.css</a>.
+            </div>
         </div>`;
     }
 }
@@ -197,13 +207,15 @@ class App extends Component {
         this.editor = new Editor(this.gram, {
             downloader: () => {
                 const staticPreview = new Typogram(this.gram);
-                staticPreview.node.style.position = 'fixed';
+                staticPreview.node.style.position = 'absolute';
                 staticPreview.node.style.top = '-100000px';
                 staticPreview.node.style.left = '-100000px';
                 staticPreview.node.style.transform = 'none';
                 document.body.appendChild(staticPreview.node);
 
-                html2canvas(staticPreview.node).then(canvas => {
+                html2canvas(staticPreview.node, {
+                    scrollY: -window.scrollY,
+                }).then(canvas => {
                     const pngURL = canvas.toDataURL('image/png');
                     const a = document.createElement('a');
                     a.href = pngURL;

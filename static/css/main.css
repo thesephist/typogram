@@ -17,11 +17,15 @@ option {
     font-family: 'IBM Plex Sans', system-ui, 'Helvetica Neue', 'Arial', 'Segoe UI', sans-serif;
 }
 
+input.paper:focus,
+textarea.paper:focus {
+    outline: 1px solid var(--paper-accent);
+}
+
 .app {
     min-height: 100vh;
     width: 100%;
     position: relative;
-    overflow: hidden;
 }
 
 .typogram.paper {
@@ -34,6 +38,7 @@ option {
     left: 50%;
     transform: translate(calc(-50% - 180px), -50%);
     transition: transform .4s ease-in-out, margin .4s ease-in-out;
+    overflow: hidden;
 }
 .typogram-header,
 .typogram-footer {
@@ -203,6 +208,15 @@ header nav a {
 }
 .editor select {
     min-width: 10em;
+}
+
+.credits {
+    font-size: .8em;
+    line-height: 1.4em;
+}
+.credits,
+.credits a {
+    color: #777;
 }
 
 @media only screen and (max-width: 930px) {
